@@ -9,3 +9,12 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"Message from {self.name} - {self.email}"
+    
+
+class CustomUser(models.Model):
+    username = models.CharField(max_length=150, unique=True)  
+    password = models.CharField(max_length=255)  
+
+    def __str__(self):
+        return self.username
+

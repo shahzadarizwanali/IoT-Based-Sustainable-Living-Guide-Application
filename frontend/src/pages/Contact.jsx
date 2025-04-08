@@ -39,7 +39,7 @@ function Contact() {
     return (
         <div>
             {/* contact section  */}
-            <section className="contact_section layout_padding">
+            <section className="contact_section m-5">
                 <div className="container-fluid">
                     <div className="col-lg-4 col-md-5 offset-md-1">
                         <div className="heading_container">

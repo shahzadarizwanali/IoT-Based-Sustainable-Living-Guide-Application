@@ -5,8 +5,8 @@ const Terms = () => {
         <div>
             {/* terms and condition section  */}
 
-            <section class="about_section layout_padding">
-                <div class="container   ">
+            <section class="about_section m-5">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-10">
                             <div class="detail-box">

@@ -4,7 +4,7 @@ function Blog2() {
     return (
         <div>
             {/* blog2 content */}
-            <section class="about_section layout_padding">
+            <section class="about_section m-5">
                 <div class="container  ">
                     <div class="row">
                         <div class="col-md-6">

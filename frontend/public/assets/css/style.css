@@ -7,9 +7,9 @@ body {
 }
 
 /* header section style */
-.layout_padding {
+/* .layout_padding {
   padding: 90px 0;
-}
+} */
 
 .layout_padding2 {
   padding: 75px 0;
@@ -547,17 +547,6 @@ certificate section */
   max-width: 100%;
   position: relative;
   z-index: 2;
-}
-
-.about_section .img-box::before,
-.about_section .img-box::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 45px;
-  height: 70%;
-  background-color: rgb(52, 200, 52);
-  z-index: 3;
 }
 
 .about_section .img-box::before {
