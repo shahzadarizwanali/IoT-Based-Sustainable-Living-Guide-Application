@@ -27,12 +27,6 @@ function Dashboard() {
                             data: [3, 8, 16, 3, 8, 16, 4, 10, 5],
                             backgroundColor: 'lightblue',
                             barThickness: 50,
-                        },
-                        {
-                            label: 'Series 2',
-                            data: [6, 14, 18, 6, 14, 18, 5, 11, 7],
-                            backgroundColor: 'lightblue',
-                            barThickness: 50,
                         }
                     ]
                 },

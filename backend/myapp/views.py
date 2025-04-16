@@ -6,7 +6,11 @@ from rest_framework.permissions import AllowAny
 from rest_framework import status
 from .models import ContactMessage
 from .serializers import ContactMessageSerializer
-
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
+from .models import ChatSession
+from rest_framework.views import APIView
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -61,3 +65,29 @@ def contact_form(request):
         return Response({"message": "Thank you for contacting us. Our team will contact you within 24 hours."}, status=status.HTTP_201_CREATED)
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# chatbot function
+class ChatView(APIView):
+    def post(self, request):
+        data = request.data
+        user_query = data.get("user_query")
+        session_id = data.get("session_id")
+
+        if not session_id:
+            session = ChatSession.objects.create()
+        else:
+            session = ChatSession.objects.filter(session_id=session_id).first()
+            if not session:
+                return Response({"error": "Invalid session ID"}, status=400)
+
+        # ChatMessage.objects.create(session=session, sender="user", text=user_query)
+
+        # TODO: Replace with AI logic
+        bot_response = "Let me look into that for you!"
+        # ChatMessage.objects.create(session=session, sender="bot", text=bot_response)
+
+        return Response({
+            "session_id": str(session.session_id),
+            "bot_response": bot_response
+        }, status=status.HTTP_200_OK)

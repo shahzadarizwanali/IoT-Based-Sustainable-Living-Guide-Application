@@ -925,3 +925,163 @@ td {
 .logo {
   width: 100px !important;
 }
+
+/* chatbot styling */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: "Segoe UI", sans-serif;
+  z-index: 1000;
+}
+
+.chatbot-icon {
+  background-color: #2e7d32;
+  color: white;
+  font-size: 26px;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  /* Lower than the window */
+}
+
+.chatbot-window {
+  width: 360px;
+  height: 500px;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 0px;
+  animation: slideUp 0.3s ease-out;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  z-index: 10;
+  /* Above the icon */
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.chatbot-topbar {
+  background-color: #2e7d32;
+  color: white;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.avatar {
+  background: white;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.status {
+  font-size: 12px;
+  color: #c8e6c9;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-msg {
+  padding: 10px 14px;
+  border-radius: 20px;
+  max-width: 75%;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.chat-msg.bot {
+  background: #f1f1f1;
+  align-self: flex-start;
+  color: #333;
+}
+
+.chat-msg.user {
+  background: #c8e6c9;
+  align-self: flex-end;
+  color: #0d470d;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 12px;
+  justify-content: flex-start;
+}
+
+.suggestions button {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.suggestions button:hover {
+  background: #c8e6c9;
+}
+
+.input-bar {
+  display: flex;
+  padding: 10px 12px;
+  border-top: 1px solid #ccc;
+  background: #f8f8f8;
+}
+
+.input-bar input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-bar button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  margin-left: 8px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}

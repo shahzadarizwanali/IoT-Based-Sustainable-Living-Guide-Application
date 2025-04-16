@@ -1,9 +1,13 @@
 import React from 'react'
+import { useEffect } from 'react';
+import Chatbot from './Chatbot';
 
-export default function Index() {
+const Index = () => {
     return (
+
         <div>
             <>
+
                 {/* main section */}
                 <section className="slider_section">
                     <div id="customCarousel1" className="carousel" data-ride="carousel">
@@ -127,6 +131,9 @@ export default function Index() {
                 </section>
 
             </>
+            <Chatbot />
         </div>
     )
 }
+
+export default Index

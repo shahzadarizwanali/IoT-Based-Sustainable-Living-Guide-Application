@@ -46,12 +46,12 @@ function Navbar2() {
                                 </div>
                             </div>
                             <a href="/">Public profile</a>
-                            <a href="/">Settings</a>
+                            <a href="/settings">Settings</a>
                             <a href="/">What's new</a>
                             <a href="/">Suggestions</a>
                             <a href="/">Report Content</a>
-                            <a href="privacy.html">Privacy policy</a>
-                            <a href="terms.html">Terms & Conditions</a>
+                            <a href="privacy">Privacy policy</a>
+                            <a href="terms">Terms & Conditions</a>
                             <a href="/">Sign out</a>
                         </div>
 
