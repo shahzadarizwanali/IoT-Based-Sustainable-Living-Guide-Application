@@ -19,6 +19,10 @@ import Signup from './pages/Signup';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Settings from './pages/Settings';
+import Whats from './pages/Whats';
+import Suggestions from './pages/Suggestions';
+import Report from './pages/Report';
+import AnalyticsPage from './pages/AnalyticsPage';
 
 function App() {
   return (
@@ -37,12 +41,18 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/settings" element={<Settings />} />
+
         </Route>
 
         {/* Dashboard Layout Route */}
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/whats" element={<Whats />} />
+          <Route path="/suggestions" element={<Suggestions />} />
+          <Route path="/report" element={<Report />} />
+          <Route path="/analytics" element={<AnalyticsPage />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,86 +1,84 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
-    const [formData, setFormData] = useState({ email: '', password: '' });
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [msg, setMsg] = useState('');
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        setError('');
-
         try {
-            const response = await fetch('http://localhost:8000/api/login/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+            const response = await axios.post('http://localhost:8000/api/login/', {
+                email,
+                password
             });
 
-            const data = await response.json();
-            if (response.ok) {
-                navigate('/dashboard'); // Redirect to Dashboard
-            } else {
-                setError(data.error || 'Invalid Credentials');
+            if (response.data.status === 'success') {
+                setMsg('Login successful!');
+
+                // 🔄 CHANGED: Save user data to localStorage
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+
+                // 🔄 CHANGED: Redirect to dashboard page
+                window.location.href = '/dashboard';
             }
         } catch (error) {
-            setError('Server error');
+            setMsg('Invalid credentials');
         }
     };
 
     return (
         <div>
             {/* login form  */}
-            <div class="m-3">
-                <div class="login-page container-fluid d-flex justify-content-center align-items-center vh-100 m-3">
-                    <div class="auth-container text-center">
+            <div className="m-3">
+                <div className="login-page container-fluid d-flex justify-content-center align-items-center vh-100 m-3">
+                    <div className="auth-container text-center">
                         <h2>Welcome!</h2>
-                        <p class="text-muted">Sign in to your account</p>
-                        <div class="google-btn">
+                        <p className="text-muted">Sign in to your account</p>
+                        <div className="google-btn">
                             <img src="/assets/images/gmail-logo.png" alt="Google Logo" />
                             Sign in with Google
                         </div>
-                        <div class="divider"><span>or</span></div>
-                        {error && <p className="text-white bg-danger">{error}</p>}
-                        <form onSubmit={handleSubmit}>
-                            <div class="mb-3">
+                        <div className="divider"><span>or</span></div>
+                        <form onSubmit={handleLogin}>
+                            <div className="mb-3">
                                 <input
                                     type="email"
                                     name="email"
+                                    value={email}
                                     className="form-control"
                                     placeholder="Email Address"
-                                    onChange={handleChange}
+                                    onChange={e => setEmail(e.target.value)}
                                     required
                                 />
                             </div>
-                            <div class="mb-3">
+                            <div className="mb-3">
                                 <input
                                     type="password"
                                     name="password"
+                                    value={password}
                                     className="form-control"
                                     placeholder="Password"
-                                    onChange={handleChange}
+                                    onChange={e => setPassword(e.target.value)}
                                     required
                                 />
                             </div>
-                            <div class="d-flex justify-content-between mb-3">
+                            <div className="d-flex justify-content-between mb-3">
                                 <div>
-                                    <input type="checkbox" id="remember" /> <label for="remember">Remember me </label>
+                                    <input type="checkbox" id="remember" /> <label htmlFor="remember">Remember me </label>
                                 </div>
-                                <br />
-                                <a href="/" onclick="toggleAuth('forget')">Forgot password?</a>
+                                <a href="/" onClick={() => window.toggleAuth?.('forget')}>Forgot password?</a> {/* 🔄 CHANGED: inline JS to React event */}
                             </div>
-                            <button type="submit" class="btn btn-dark w-100">Sign in</button>
+                            <button type="submit" className="btn btn-dark w-100">Sign in</button>
+                            <p>{msg}</p>
                         </form>
-                        <p class="mt-3 text-muted">Don't have an account? <a href="/signup">Sign up</a></p>
+                        <p className="mt-3 text-muted">Don't have an account? <a href="/signup">Sign up</a></p>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 };
-export default Login
+
+export default Login;

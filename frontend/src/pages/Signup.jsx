@@ -1,34 +1,23 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Signup = () => {
-    const [formData, setFormData] = useState({ username: '', email: '', password: '' });
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+    const handleChange = e => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        setError('');
-        setSuccess('');
-
         try {
-            const response = await fetch('http://localhost:8000/api/signup/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
-
-            const data = await response.json();
-            if (response.ok) {
-                setSuccess('Signup successful! You can now log in.');
-            } else {
-                setError(data.error || 'Signup failed');
-            }
+            const response = await axios.post('http://127.0.0.1:8000/api/signup/', formData);
+            alert(response.data.message);
         } catch (error) {
-            setError('Server error');
+            alert("Signup failed");
+            console.log(error.response.data);
         }
     };
 
@@ -43,11 +32,11 @@ const Signup = () => {
                         Sign up with Google
                     </div>
                     <div class="divider"><span>or</span></div>
-                    {error && <p className="text-white bg-danger">{error}</p>}
-                    {success && <p className="text-white bg-success">{success}</p>}
+                    {/* {error && <p className="text-white bg-danger">{error}</p>}
+                    {success && <p className="text-white bg-success">{success}</p>} */}
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3">
-                            <input type="text" name="username" className="form-control" placeholder="Enter Your Name" onChange={handleChange} required />
+                            <input type="text" name="name" className="form-control" placeholder="Enter Your Name" onChange={handleChange} required />
                         </div>
                         <div className="mb-3">
                             <input type="email" name="email" className="form-control" placeholder="Email address" onChange={handleChange} required />
@@ -57,6 +46,7 @@ const Signup = () => {
                         </div>
                         <button type="submit" className="btn btn-dark w-100">Sign up</button>
                     </form>
+                    <p class="mt-3 text-muted">Already have account? <a href="/login">Login</a></p>
                 </div>
             </div>
         </div>

@@ -1,10 +1,15 @@
 from django.urls import path
-from .views import signup, login_user, logout_user, contact_form, ChatView
+from . import views
 
 urlpatterns = [
-    path('signup/', signup, name='signup'),
-    path('login/', login_user, name='login'),
-    path('logout/', logout_user, name='logout'),
-    path('contact/', contact_form, name='contact_form_submission'),
-    path("api/chat/", ChatView.as_view(), name="chat-api"),
+    path('signup/', views.signup, name='signup'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
+    path('contact/', views.contact_form, name='contact_form_submission'),
+    path('submit-report/', views.SubmitReportView.as_view(), name='submit-report'),
+    path('notifications/', views.get_notifications, name='get_notifications'),
+    path('start/', views.start_chat, name='start_chat'),
+    path('message/', views.save_message, name='save_message'),
+    path('history/<int:session_id>/', views.get_chat_history, name='get_chat_history'),
+     path('sensor-data/', views.get_latest_sensor_data, name='sensor-data'),
 ]

@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Chart from 'chart.js/auto';
 
-let chartInstance = null;
+let chartInstance = null; // Store chart instance globally
 
-function Dashboard() {
-
-
+const Dashboard = () => {
     useEffect(() => {
         var ctx = document.getElementById('chart');
         if (ctx) {
@@ -20,14 +18,15 @@ function Dashboard() {
             chartInstance = new Chart(chartContext, {
                 type: 'bar',
                 data: {
-                    labels: ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9'],
+                    labels: ['Temperature', 'Humidity', 'CO2', 'CO', 'NH3', 'NO2', 'C6H6'],
                     datasets: [
                         {
                             label: 'Series 1',
                             data: [3, 8, 16, 3, 8, 16, 4, 10, 5],
                             backgroundColor: 'lightblue',
                             barThickness: 50,
-                        }
+                        },
+
                     ]
                 },
                 options: {
@@ -69,7 +68,6 @@ function Dashboard() {
         };
     }, []);
 
-
     return (
         <div>
             {/* bar chart and data analytics table */}
@@ -100,31 +98,33 @@ function Dashboard() {
                         <h2 className="text-white fw-bold m-0 " style={{ textAlign: "center" }}>Data Analytics History</h2>
                         <div className="w-100 h-100 d-flex align-items-center justify-content-center">
                             <table className="table table-dark mt-3" style={{ border: "2px solid #fff" }}>
-                                <tr style={{ border: "2px solid #fff" }}>
-                                    <td style={{ border: "1px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                </tr>
-                                <tr style={{ border: "2px solid #fff" }}>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                </tr>
-                                <tr style={{ border: "2px solid #fff" }}>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                </tr>
-                                <tr style={{ border: "2px solid #fff" }}>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                </tr>
-                                <tr style={{ border: "2px solid #fff" }}>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                    <td style={{ border: "2px solid #fff" }}></td>
-                                </tr>
+                                <tbody>
+                                    <tr style={{ border: "2px solid #fff" }}>
+                                        <td style={{ border: "1px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                    </tr>
+                                    <tr style={{ border: "2px solid #fff" }}>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                    </tr>
+                                    <tr style={{ border: "2px solid #fff" }}>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                    </tr>
+                                    <tr style={{ border: "2px solid #fff" }}>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                    </tr>
+                                    <tr style={{ border: "2px solid #fff" }}>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                        <td style={{ border: "2px solid #fff" }}></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

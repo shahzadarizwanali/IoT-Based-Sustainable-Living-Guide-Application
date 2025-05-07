@@ -41,13 +41,13 @@ const Certificate = () => {
                             </div>
 
                             {/* Buy Buttons  */}
-                            <button class="btn btn-warning w-100 mb-2">Buy now</button>
+                            {/* <button class="btn btn-warning w-100 mb-2">Buy now</button>
                             <button class="btn btn-success w-100">Buy it now</button>
 
                             <p class="mt-2 text-muted">14-Day Money-Back Guarantee</p>
 
                             <p class="mt-2">Interested in multiple purchases? <a href="/" class="text-primary">Send us a
-                                request.</a></p>
+                                request.</a></p> */}
                         </div>
                     </div>
                 </div>
