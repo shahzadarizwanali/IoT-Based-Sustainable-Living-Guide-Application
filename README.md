@@ -11,7 +11,6 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 - **Machine Learning (Random Forest):** Predicts future carbon footprint levels based on current and historical pollutant data.
 - **Notifications:** Alerts users when the environment becomes unsustainable.
 - **Frontend (React):** Displays dashboards, analytics, and forecasted environmental values.
-- **Mobile App (Android Studio):** Provides real-time alerts and sustainable recommendations.
 - **AI Chatbot:** Provides sustainability guidance and suggestions based on air quality analysis.
 
 ---
@@ -27,10 +26,10 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 
 ### 📈 Data Analytics & Visualization
 - Live sensor data charts (bar and line graphs)
-- 7-day forecast using **XGBoost Machine Learning Model**
+- 7-day forecast using **Random Forest Machine Learning Model**
 - Comparison of forecasted vs current pollution levels
 
-### 🤖 Machine Learning Integration (XGBoost)
+### 🤖 Machine Learning Integration (Random Forest)
 - Trained on `sensor_data.csv` (20,000+ readings)
 - Predicts future carbon footprint
 - Generates sustainability insights
@@ -38,11 +37,6 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 ### 🔔 Notifications System
 - Alerts users when carbon footprint exceeds sustainable thresholds
 - Shows forecasted environmental insights on dashboard
-
-### 💬 Smart Chatbot
-- Green-themed AI assistant for sustainability queries
-- Provides actionable eco-friendly recommendations
-- Integrated with Django backend (data stored in local DB)
 
 ### 🔐 Authentication
 - Custom Signup and Login (Django + React)
@@ -150,13 +144,6 @@ These notifications appear on the frontend dashboard and mobile app.
 
 ---
 
-## 📱 Mobile App Integration
-- Built using **Android Studio**
-- Fetches API data from Django backend
-- Displays sustainability tips, real-time sensor data, and forecasts
-
----
-
 ## 🧩 Technologies Used
 | Category | Technologies |
 |-----------|--------------|
@@ -164,8 +151,6 @@ These notifications appear on the frontend dashboard and mobile app.
 | **Backend** | Django, MySQL, REST API |
 | **IoT** | ESP32, Arduino IDE, MQ135, MQ7, DHT22 |
 | **Machine Learning** | Python, XGBoost, scikit-learn, Pandas |
-| **Mobile App** | Android Studio, Java/Kotlin |
-| **Notifications** | Django channels / custom push system |
 
 ---
 
