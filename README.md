@@ -141,20 +141,6 @@ Sample Response:
   "forecast": 12.56
 }
 ```
-
----
-
-## 🔔 Notifications Integration
-Notifications are triggered when forecasted carbon footprint exceeds sustainable thresholds (e.g., >15).  
-These notifications appear on the frontend dashboard and mobile app.
-
----
-
-## 📱 Mobile App Integration
-- Built using **Android Studio**
-- Fetches API data from Django backend
-- Displays sustainability tips, real-time sensor data, and forecasts
-
 ---
 
 ## 🧩 Technologies Used
@@ -164,16 +150,18 @@ These notifications appear on the frontend dashboard and mobile app.
 | **Backend** | Django, MySQL, REST API |
 | **IoT** | ESP32, Arduino IDE, MQ135, MQ7, DHT22 |
 | **Machine Learning** | Python, XGBoost, scikit-learn, Pandas |
-| **Mobile App** | Android Studio, Java/Kotlin |
-| **Notifications** | Django channels / custom push system |
 
 ---
 
 ## 📊 Future Enhancements
-- Integrate more sensors for water and noise pollution
-- Add deep learning models for more accurate forecasts
-- Expand chatbot with NLP for sustainability education
-- Deploy app on AWS / Render for public access
+
+- Integrate more sensors for water and noise pollution  
+- Add deep learning models for more accurate forecasts  
+- Expand chatbot with NLP for sustainability education  
+- Deploy app on AWS / Render for public access  
+- **🔔 Notifications Integration:** Trigger alerts when forecasted carbon footprint exceeds sustainable thresholds (e.g., >15), displayed on both frontend dashboard and mobile app.  
+- **📱 Mobile App Integration:** Android app (built with Android Studio) fetching real-time sensor data and sustainability tips from the Django backend API.  
+
 
 ---
 
