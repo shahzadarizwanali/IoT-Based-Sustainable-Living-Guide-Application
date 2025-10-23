@@ -11,7 +11,6 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 - **Machine Learning (Random Forest):** Predicts future carbon footprint levels based on current and historical pollutant data.
 - **Notifications:** Alerts users when the environment becomes unsustainable.
 - **Frontend (React):** Displays dashboards, analytics, and forecasted environmental values.
-- **Mobile App (Android Studio):** Provides real-time alerts and sustainable recommendations.
 - **AI Chatbot:** Provides sustainability guidance and suggestions based on air quality analysis.
 
 ---
@@ -30,7 +29,7 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 - 7-day forecast using **Random Forest Machine Learning Model**
 - Comparison of forecasted vs current pollution levels
 
-### 🤖 Machine Learning Integration (XGBoost)
+### 🤖 Machine Learning Integration (Ramdom Forest ML Model)
 - Trained on `sensor_data.csv` (20,000+ readings)
 - Predicts future carbon footprint
 - Generates sustainability insights
@@ -221,7 +220,7 @@ Sample Response:
 | **Frontend** | React.js, Chart.js, HTML, CSS, JavaScript |
 | **Backend** | Django, MySQL, REST API |
 | **IoT** | ESP32, Arduino IDE, MQ135, MQ7, DHT22 |
-| **Machine Learning** | Python, XGBoost, scikit-learn, Pandas |
+| **Machine Learning** | Python, Random Forest , scikit-learn, Pandas |
 
 ---
 
