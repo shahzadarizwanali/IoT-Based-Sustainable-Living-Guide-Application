@@ -29,7 +29,7 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 - 7-day forecast using **Random Forest Machine Learning Model**
 - Comparison of forecasted vs current pollution levels
 
-### 🤖 Machine Learning Integration (Random Forest)
+### 🤖 Machine Learning Integration (Ramdom Forest ML Model)
 - Trained on `sensor_data.csv` (20,000+ readings)
 - Predicts future carbon footprint
 - Generates sustainability insights
@@ -37,6 +37,11 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 ### 🔔 Notifications System
 - Alerts users when carbon footprint exceeds sustainable thresholds
 - Shows forecasted environmental insights on dashboard
+
+### 💬 Smart Chatbot
+- Green-themed AI assistant for sustainability queries
+- Provides actionable eco-friendly recommendations
+- Integrated with Django backend (data stored in local DB)
 
 ### 🔐 Authentication
 - Custom Signup and Login (Django + React)
@@ -47,29 +52,101 @@ The **IoT-Based Sustainable Living Guide Application** is a full-stack web and m
 ## 🧩 Folder Structure
 
 ```
-backend/
+Django-React Code/
+│
+├── backend/
+│ ├── pycache/
+│ ├── init.py
+│ ├── asgi.py
+│ ├── settings.py
+│ ├── urls.py
+│ └── wsgi.py
+│
 ├── myapp/
-│   ├── models/
-│   ├── views.py
-│   ├── urls.py
-│   ├── utils/
-│   ├── xgboost_model/
-│   │   ├── train_xgboost.py
-│   │   ├── predict_xgboost.py
-│   │   ├── xgboost_model.json
-│   ├── sensor_data.csv
-│   ├── read_serial_and_save_csv.py
-│   └── templates/
+│ ├── pycache/
+│ ├── migrations/
+│ ├── models/
+│ │ └── xgboost_carbon_footprint_model.pkl
+│ │
+│ ├── static/
+│ │ ├── sustainable_living_dataset_final.csv
+│ │ └── sensor_data.csv
+│ │
+│ ├── init.py
+│ ├── admin.py
+│ ├── apps.py
+│ ├── error_log.txt
+│ ├── models.py
+│ ├── read_serial_and_save_csv.py
+│ ├── serializers.py
+│ ├── tests.py
+│ ├── urls.py
+│ ├── utils.py
+│ └── views.py
+│
+├── venv/
 │
 └── manage.py
 
 frontend/
+│
+├── node_modules/
+│
+├── public/
+│ ├── assets/
+│ ├── favicon.ico
+│ ├── index.html
+│ ├── manifest.json
+│ └── robots.txt
+│
 ├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.js
-│   └── index.js
-└── package.json
+│ ├── components/
+│ │ ├── AirChart.jsx
+│ │ ├── Footer.jsx
+│ │ ├── Navbar.jsx
+│ │ └── Navbar2.jsx
+│ │
+│ ├── layouts/
+│ │ ├── DashboardLayout.jsx
+│ │ └── MainLayout.jsx
+│ │
+│ ├── pages/
+│ │ ├── About.jsx
+│ │ ├── AnalyticsPage.jsx
+│ │ ├── AuthContext.jsx
+│ │ ├── Blog1.jsx
+│ │ ├── Blog2.jsx
+│ │ ├── Blog3.jsx
+│ │ ├── Certificate.jsx
+│ │ ├── Chatbot.jsx
+│ │ ├── Contact.jsx
+│ │ ├── Dashboard.jsx
+│ │ ├── Index.jsx
+│ │ ├── Login.jsx
+│ │ ├── Privacy.jsx
+│ │ ├── Report.jsx
+│ │ ├── ResetPassword.jsx
+│ │ ├── Settings.jsx
+│ │ ├── Signup.jsx
+│ │ ├── Suggestions.jsx
+│ │ ├── Terms.jsx
+│ │ └── Whats.jsx
+│ │
+│ ├── App.css
+│ ├── App.js
+│ ├── App.test.js
+│ ├── index.css
+│ ├── index.js
+│ ├── logo.svg
+│ ├── reportWebVitals.js
+│ └── setupTests.js
+│
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── Pipfile
+├── Pipfile.lock
+└── README.md
 ```
 
 ---
@@ -135,13 +212,6 @@ Sample Response:
   "forecast": 12.56
 }
 ```
-
----
-
-## 🔔 Notifications Integration
-Notifications are triggered when forecasted carbon footprint exceeds sustainable thresholds (e.g., >15).  
-These notifications appear on the frontend dashboard and mobile app.
-
 ---
 
 ## 🧩 Technologies Used
@@ -150,15 +220,19 @@ These notifications appear on the frontend dashboard and mobile app.
 | **Frontend** | React.js, Chart.js, HTML, CSS, JavaScript |
 | **Backend** | Django, MySQL, REST API |
 | **IoT** | ESP32, Arduino IDE, MQ135, MQ7, DHT22 |
-| **Machine Learning** | Python, XGBoost, scikit-learn, Pandas |
+| **Machine Learning** | Python, Random Forest , scikit-learn, Pandas |
 
 ---
 
 ## 📊 Future Enhancements
-- Integrate more sensors for water and noise pollution
-- Add deep learning models for more accurate forecasts
-- Expand chatbot with NLP for sustainability education
-- Deploy app on AWS / Render for public access
+
+- Integrate more sensors for water and noise pollution  
+- Add deep learning models for more accurate forecasts  
+- Expand chatbot with NLP for sustainability education  
+- Deploy app on AWS / Render for public access  
+- **🔔 Notifications Integration:** Trigger alerts when forecasted carbon footprint exceeds sustainable thresholds (e.g., >15), displayed on both frontend dashboard and mobile app.  
+- **📱 Mobile App Integration:** Android app (built with Android Studio) fetching real-time sensor data and sustainability tips from the Django backend API.  
+
 
 ---
 
